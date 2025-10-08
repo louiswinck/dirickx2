@@ -15,35 +15,71 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
     }
 
-    /* Apparition des sections */
+    /* Apparition globale */
     .fade-in {
       opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 0.8s ease-out forwards;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    @keyframes fadeIn {
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Animation du header */
+    .header-anim {
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: headerDrop 0.8s ease-out forwards;
+      animation-delay: 0.3s;
+    }
+    @keyframes headerDrop {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    /* Animation du header */
-    .header-anim {
+    /* Animation du logo */
+    .logo-anim {
       opacity: 0;
-      transform: translateX(-40px);
-      animation: slideInHeader 0.8s ease-out forwards;
+      transform: translateY(-15px);
+      animation: logoEntry 1s ease-out forwards;
+      animation-delay: 0.6s;
+      transition: transform 0.4s ease;
     }
-    @keyframes slideInHeader {
+    @keyframes logoEntry {
       to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
       }
     }
+    .logo-anim:hover {
+      transform: scale(1.08) rotate(-2deg);
+    }
 
-    /* Animation des boutons */
+    /* Animation de l'image du héros */
+    .hero-img {
+      opacity: 0;
+      transform: scale(1.05);
+      animation: heroFade 1s ease-out forwards;
+      animation-delay: 1s;
+      transition: transform 0.5s ease;
+    }
+    @keyframes heroFade {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    .hero-img:hover {
+      transform: scale(1.08);
+    }
+
+    /* Boutons */
     .btn {
       transition: all 0.3s ease-in-out;
     }
@@ -62,9 +98,9 @@
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased">
   <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-      <div class="flex items-center gap-4 header-anim">
-        <img src="/logo-dirickx.png" alt="Dirickx" class="h-12 w-auto" />
+    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between header-anim">
+      <div class="flex items-center gap-4">
+        <img src="/logo-dirickx.png" alt="Dirickx" class="h-12 w-auto logo-anim" />
         <div>
           <h1 class="text-lg font-semibold">Stéphane Winckel</h1>
           <p class="text-sm text-gray-600">Responsable Commercial · Dirickx — Luxembourg</p>
@@ -97,8 +133,8 @@
         </div>
       </div>
 
-      <div class="rounded-xl overflow-hidden shadow-lg fade-in">
-        <img src="/hero-project.jpg" alt="Projet Dirickx" class="w-full h-80 object-cover hover:scale-105 transform transition duration-500" />
+      <div class="rounded-xl overflow-hidden shadow-lg">
+        <img src="/hero-project.jpg" alt="Projet Dirickx" class="w-full h-80 object-cover hero-img" />
       </div>
     </section>
 
@@ -182,29 +218,14 @@
   </main>
 
   <script>
-    // Apparition progressive des sections
-    const elements = document.querySelectorAll('.fade-in');
+    // Apparition progressive au scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: 0.1 });
-    elements.forEach(el => observer.observe(el));
-  </script>
-
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Dirickx - Stéphane Winckel",
-      "url": "https://www.dirickx.fr/",
-      "telephone": "+352661686855",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "LU"
-      },
-      "sameAs": ["https://www.linkedin.com/search/results/all/?keywords=Stephane%20Winckel"]
-    }
+    }, { threshold: 0.2 });
+    fadeElements.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
