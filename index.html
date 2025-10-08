@@ -21,12 +21,14 @@
     /* Apparition globale */
     .fade-in {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease-out forwards;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Animation du header */
@@ -167,7 +169,7 @@
         <h3 class="text-2xl font-semibold mb-3">Zone couverte</h3>
         <p class="text-gray-700 mb-4 leading-relaxed">Intervention sur l'ensemble du Luxembourg. Pour toute demande, contactez directement Stéphane.</p>
         <ul class="text-sm text-gray-600">
-          <li>📍 Luxembourg (toute la région)</li>
+          <li>📍 Luxembourg </li>
         </ul>
       </div>
       <div class="rounded-xl overflow-hidden shadow-lg">
@@ -218,14 +220,14 @@
   </main>
 
   <script>
-    // Apparition progressive au scroll
-    const fadeElements = document.querySelectorAll('.fade-in');
+    // Apparition progressive des sections
+    const elements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: 0.2 });
-    fadeElements.forEach(el => observer.observe(el));
+    }, { threshold: 0.1 });
+    elements.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
