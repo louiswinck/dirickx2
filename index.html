@@ -63,24 +63,6 @@
       transform: scale(1.08) rotate(-2deg);
     }
 
-    /* Animation de l'image du héros */
-    .hero-img {
-      opacity: 0;
-      transform: scale(1.05);
-      animation: heroFade 1s ease-out forwards;
-      animation-delay: 1s;
-      transition: transform 0.5s ease;
-    }
-    @keyframes heroFade {
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-    .hero-img:hover {
-      transform: scale(1.08);
-    }
-
     /* Boutons */
     .btn {
       transition: all 0.3s ease-in-out;
@@ -135,8 +117,8 @@
         </div>
       </div>
 
-      <div class="rounded-xl overflow-hidden shadow-lg">
-        <img src="/hero-project.jpg" alt="Projet Dirickx" class="w-full h-80 object-cover hero-img" />
+      <div class="rounded-xl overflow-hidden shadow-lg fade-in">
+        <img src="/hero-project.jpg" alt="Projet Dirickx" class="w-full h-80 object-cover hover:scale-105 transform transition duration-500" />
       </div>
     </section>
 
@@ -169,7 +151,7 @@
         <h3 class="text-2xl font-semibold mb-3">Zone couverte</h3>
         <p class="text-gray-700 mb-4 leading-relaxed">Intervention sur l'ensemble du Luxembourg. Pour toute demande, contactez directement Stéphane.</p>
         <ul class="text-sm text-gray-600">
-          <li>📍 Luxembourg </li>
+          <li>📍 Luxembourg (toute la région)</li>
         </ul>
       </div>
       <div class="rounded-xl overflow-hidden shadow-lg">
