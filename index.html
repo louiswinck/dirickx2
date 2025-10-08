@@ -16,22 +16,34 @@
     body {
       font-family: 'Inter', sans-serif;
       scroll-behavior: smooth;
+      background: #f9fafb;
     }
 
-    /* Apparition globale */
+    /* === Animation du fond dégradé === */
+    .gradient-bg {
+      background: linear-gradient(120deg, #e0f2fe, #f0f9ff, #dbeafe);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      border-radius: 1rem;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* === Animations d’apparition === */
     .fade-in {
       opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 0.8s ease-out forwards;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* Animation du header */
     .header-anim {
       opacity: 0;
       transform: translateY(-20px);
@@ -39,13 +51,9 @@
       animation-delay: 0.3s;
     }
     @keyframes headerDrop {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Animation du logo */
     .logo-anim {
       opacity: 0;
       transform: translateY(-15px);
@@ -54,16 +62,26 @@
       transition: transform 0.4s ease;
     }
     @keyframes logoEntry {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
     .logo-anim:hover {
       transform: scale(1.08) rotate(-2deg);
     }
 
-    /* Boutons */
+    .hero-img {
+      opacity: 0;
+      transform: scale(1.05);
+      animation: heroFade 1s ease-out forwards;
+      animation-delay: 1s;
+      transition: transform 0.5s ease;
+    }
+    @keyframes heroFade {
+      to { opacity: 1; transform: scale(1); }
+    }
+    .hero-img:hover {
+      transform: scale(1.08);
+    }
+
     .btn {
       transition: all 0.3s ease-in-out;
     }
@@ -72,16 +90,10 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
   </style>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Dirickx Luxembourg – Stéphane Winckel" />
-  <meta property="og:description" content="Responsable Commercial Dirickx pour tout le Luxembourg. Contactez Stéphane pour vos projets de clôtures, portails et sécurité périmétrique." />
-  <meta property="og:image" content="/hero-project.jpg" />
-  <meta property="og:url" content="https://www.dirickx.fr/" />
-  <meta name="twitter:card" content="summary_large_image" />
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased">
-  <header class="bg-white shadow-sm sticky top-0 z-50">
+
+<body class="text-gray-900 antialiased">
+  <header class="bg-white shadow-sm sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
     <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between header-anim">
       <div class="flex items-center gap-4">
         <img src="/logo-dirickx.png" alt="Dirickx" class="h-12 w-auto logo-anim" />
@@ -90,41 +102,45 @@
           <p class="text-sm text-gray-600">Responsable Commercial · Dirickx — Luxembourg</p>
         </div>
       </div>
-      <a href="mailto:stephane.winckel@luxmeca.lu"
+      <!-- Bouton Contacter via Gmail Web -->
+      <a href="https://mail.google.com/mail/?view=cm&to=stephane.winckel@luxmeca.lu&su=Demande%20d'information&body=Bonjour%20Stéphane,"
+         target="_blank" rel="noopener"
          class="btn inline-block px-5 py-2 border border-blue-600 text-blue-600 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white">
-         Envoyer un mail
+         Contacter
       </a>
     </div>
   </header>
 
   <main class="max-w-5xl mx-auto px-6 py-12 space-y-16">
-    <!-- Hero -->
-    <section class="grid md:grid-cols-2 gap-10 items-center fade-in">
+
+    <!-- Section Héros avec fond animé -->
+    <section class="gradient-bg p-10 grid md:grid-cols-2 gap-10 items-center fade-in shadow-lg">
       <div>
-        <h2 class="text-4xl font-bold mb-4">Votre interlocuteur Dirickx au Luxembourg</h2>
-        <p class="text-gray-700 mb-5 leading-relaxed">Je représente Dirickx sur tout le territoire luxembourgeois. J'accompagne collectivités, entreprises et particuliers dans leurs projets de clôture, contrôle d'accès et protection périmétrique.</p>
-        <ul class="space-y-2 text-gray-700">
+        <h2 class="text-4xl font-bold mb-4 text-blue-900">Votre interlocuteur Dirickx au Luxembourg</h2>
+        <p class="text-gray-700 mb-5 leading-relaxed">
+          Je représente Dirickx sur tout le territoire luxembourgeois. J'accompagne collectivités, entreprises et particuliers dans leurs projets de clôture, contrôle d'accès et protection périmétrique.
+        </p>
+        <ul class="space-y-2 text-gray-800">
           <li>🔹 Diagnostics & conseils sur-mesure</li>
           <li>🔹 Solutions complètes : clôtures, portails, motorisations, systèmes anti-intrusion</li>
           <li>🔹 Suivi de projet et réseau d'installateurs certifiés</li>
         </ul>
         <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#contact" class="btn px-5 py-3 bg-blue-600 text-white rounded-md">Me contacter</a>
+          <a href="#contact" class="btn px-5 py-3 bg-blue-600 text-white rounded-md shadow">Me contacter</a>
           <a href="https://www.dirickx.fr/" target="_blank" rel="noopener"
-             class="btn px-5 py-3 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white">
+             class="btn px-5 py-3 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white shadow">
              Découvrir Dirickx
           </a>
         </div>
       </div>
-
-      <div class="rounded-xl overflow-hidden shadow-lg fade-in">
-        <img src="/hero-project.jpg" alt="Projet Dirickx" class="w-full h-80 object-cover hover:scale-105 transform transition duration-500" />
+      <div class="rounded-xl overflow-hidden shadow-lg">
+        <img src="/hero-project.jpg" alt="Projet Dirickx" class="w-full h-80 object-cover hero-img" />
       </div>
     </section>
 
-    <!-- Produits -->
+    <!-- Section Produits -->
     <section id="produits" class="bg-white rounded-xl p-8 shadow-sm fade-in">
-      <h3 class="text-2xl font-semibold mb-6 text-center">Solutions Dirickx</h3>
+      <h3 class="text-2xl font-semibold mb-6 text-center text-blue-900">Solutions Dirickx</h3>
       <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
         <article class="p-4 border rounded-lg hover:shadow-md transition">
           <h4 class="font-medium text-blue-700">Clôtures & Treillis</h4>
@@ -145,10 +161,10 @@
       </div>
     </section>
 
-    <!-- Zone -->
+    <!-- Section Zone -->
     <section id="zone" class="grid md:grid-cols-2 gap-10 items-center fade-in">
       <div>
-        <h3 class="text-2xl font-semibold mb-3">Zone couverte</h3>
+        <h3 class="text-2xl font-semibold mb-3 text-blue-900">Zone couverte</h3>
         <p class="text-gray-700 mb-4 leading-relaxed">Intervention sur l'ensemble du Luxembourg. Pour toute demande, contactez directement Stéphane.</p>
         <ul class="text-sm text-gray-600">
           <li>📍 Luxembourg (toute la région)</li>
@@ -159,12 +175,12 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Section Contact -->
     <section id="contact" class="bg-white rounded-xl p-8 shadow-sm fade-in">
-      <h3 class="text-2xl font-semibold mb-6 text-center">Contact</h3>
+      <h3 class="text-2xl font-semibold mb-6 text-center text-blue-900">Contact</h3>
       <div class="grid md:grid-cols-2 gap-10">
         <div>
-          <p class="text-gray-700 text-lg font-medium">Stéphane Winckel</p>
+          <p class="text-gray-800 text-lg font-medium">Stéphane Winckel</p>
           <p class="text-gray-600 mb-4">Responsable Commercial - Dirickx Luxembourg</p>
           <p class="mt-2 text-sm">📞 <a href="tel:+352661686855" class="text-blue-600 hover:underline">+352 661 686 855</a></p>
           <p class="mt-1 text-sm">✉️ <a href="mailto:stephane.winckel@luxmeca.lu" class="text-blue-600 hover:underline">stephane.winckel@luxmeca.lu</a></p>
@@ -202,14 +218,13 @@
   </main>
 
   <script>
-    // Apparition progressive des sections
-    const elements = document.querySelectorAll('.fade-in');
+    const fadeElements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: 0.1 });
-    elements.forEach(el => observer.observe(el));
+    }, { threshold: 0.2 });
+    fadeElements.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
