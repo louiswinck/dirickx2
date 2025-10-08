@@ -9,7 +9,7 @@
   <!-- Tailwind CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
 
-  <!-- Font + animations -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -17,7 +17,7 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* Animation d'apparition douce */
+    /* Apparition des sections */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -30,7 +30,20 @@
       }
     }
 
-    /* Animation hover boutons */
+    /* Animation du header */
+    .header-anim {
+      opacity: 0;
+      transform: translateX(-40px);
+      animation: slideInHeader 0.8s ease-out forwards;
+    }
+    @keyframes slideInHeader {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Animation des boutons */
     .btn {
       transition: all 0.3s ease-in-out;
     }
@@ -50,7 +63,7 @@
 <body class="bg-gray-50 text-gray-900 antialiased">
   <header class="bg-white shadow-sm sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4 header-anim">
         <img src="/logo-dirickx.png" alt="Dirickx" class="h-12 w-auto" />
         <div>
           <h1 class="text-lg font-semibold">Stéphane Winckel</h1>
@@ -168,15 +181,14 @@
     </footer>
   </main>
 
-  <!-- Animation au scroll -->
   <script>
+    // Apparition progressive des sections
     const elements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-
     elements.forEach(el => observer.observe(el));
   </script>
 
