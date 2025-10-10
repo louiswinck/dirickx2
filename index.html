@@ -18,16 +18,17 @@
       scroll-behavior: smooth;
     }
 
+    /* Apparition globale */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      animation: fadeIn 0.8s ease-out forwards;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Animation du header */
     .header-anim {
       opacity: 0;
       transform: translateY(-20px);
@@ -38,6 +39,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Animation du logo */
     .logo-anim {
       opacity: 0;
       transform: translateY(-15px);
@@ -50,6 +52,7 @@
     }
     .logo-anim:hover { transform: scale(1.08) rotate(-2deg); }
 
+    /* Boutons */
     .btn {
       transition: all 0.3s ease-in-out;
     }
@@ -57,17 +60,20 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
-
-    article:hover {
-      transform: translateY(-4px);
-      transition: transform 0.2s ease;
-    }
   </style>
-</head>
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dirickx Luxembourg – Stéphane Winckel" />
+  <meta property="og:description" content="Responsable Commercial Dirickx pour tout le Luxembourg. Contactez Stéphane pour vos projets de clôtures, portails et sécurité périmétrique." />
+  <meta property="og:image" content="/hero-project.jpg" />
+  <meta property="og:url" content="https://www.dirickx.fr/" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
 <body class="bg-gray-50 text-gray-900 antialiased">
+
+  <!-- HEADER -->
   <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="w-full px-8 md:px-16 py-5 flex items-center justify-between header-anim">
+    <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between header-anim">
       <div class="flex items-center gap-4">
         <img src="/logo-dirickx.png" alt="Dirickx" class="h-12 w-auto logo-anim" />
         <div>
@@ -77,54 +83,59 @@
       </div>
       <a href="https://mail.google.com/mail/?view=cm&to=stephane.winckel@luxmeca.lu&su=Demande%20d'information&body=Bonjour%20Stéphane,"
          target="_blank" rel="noopener"
-         class="btn inline-block px-5 py-2 border border-blue-600 text-blue-600 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white">
+         class="btn inline-block px-6 py-2 border border-blue-600 text-blue-600 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white">
          Envoyer un mail
       </a>
     </div>
   </header>
 
-  <main class="w-full space-y-20">
-    <!-- Hero plein écran -->
-    <section class="relative w-full h-[80vh] md:h-[90vh] flex items-center justify-center overflow-hidden">
-      <!-- Image de fond -->
-      <img src="/hero-project.jpg" alt="Projet Dirickx au Luxembourg" class="absolute inset-0 w-full h-full object-cover" />
+  <!-- HERO -->
+  <section class="relative w-full h-[85vh] md:h-[100vh] flex items-center justify-center overflow-hidden">
+    <!-- Image de fond -->
+    <img src="/hero-project.jpg" alt="Projet Dirickx au Luxembourg" class="absolute inset-0 w-full h-full object-cover" />
 
-      <!-- Overlay foncé -->
-      <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    <!-- Overlay noir -->
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
 
-      <!-- Contenu du hero -->
-      <div class="relative z-10 text-center text-white px-6 md:px-20 fade-in">
-        <h2 class="text-4xl md:text-5xl font-bold mb-6">Votre interlocuteur Dirickx au Luxembourg</h2>
-        <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-          J'accompagne collectivités, entreprises et particuliers dans leurs projets de clôtures, portails et sécurité périmétrique à travers tout le Grand-Duché.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="#contact" class="btn px-6 py-3 bg-blue-600 text-white rounded-md text-lg">Me contacter</a>
-          <a href="https://www.dirickx.fr/" target="_blank" rel="noopener"
-             class="btn inline-block px-6 py-3 border border-white text-white rounded-md text-lg hover:bg-white hover:text-blue-600">
-             Découvrir Dirickx
-          </a>
-        </div>
+    <!-- Dégradé bas -->
+    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-50 to-transparent"></div>
+
+    <!-- Contenu -->
+    <div class="relative z-10 text-center text-white px-6 md:px-20 fade-in">
+      <h2 class="text-4xl md:text-6xl font-bold mb-8 md:mb-10 leading-tight">Votre interlocuteur Dirickx au Luxembourg</h2>
+      <p class="text-lg md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
+        J'accompagne collectivités, entreprises et particuliers dans leurs projets de clôtures, portails et sécurité périmétrique à travers tout le Grand-Duché.
+      </p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="#contact" class="btn px-8 py-4 bg-blue-600 text-white rounded-md text-lg">Me contacter</a>
+        <a href="https://www.dirickx.fr/" target="_blank" rel="noopener"
+           class="btn inline-block px-8 py-4 border border-white text-white rounded-md text-lg hover:bg-white hover:text-blue-600">
+           Découvrir Dirickx
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="max-w-7xl mx-auto px-8 py-20 space-y-20">
 
     <!-- Produits -->
-    <section id="produits" class="bg-white rounded-none p-8 md:px-16 shadow-sm fade-in">
-      <h3 class="text-2xl font-semibold mb-6 text-center">Solutions Dirickx</h3>
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-        <article class="p-4 border rounded-lg hover:shadow-md">
+    <section id="produits" class="bg-white rounded-xl p-10 shadow-sm fade-in">
+      <h3 class="text-2xl font-semibold mb-8 text-center">Solutions Dirickx</h3>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <article class="p-4 border rounded-lg hover:shadow-md transition">
           <h4 class="font-medium text-blue-700">Clôtures & Treillis</h4>
           <p class="text-sm text-gray-600 mt-2">Robustes, adaptées aux collectivités et sites industriels.</p>
         </article>
-        <article class="p-4 border rounded-lg hover:shadow-md">
+        <article class="p-4 border rounded-lg hover:shadow-md transition">
           <h4 class="font-medium text-blue-700">Portails & Motorisation</h4>
           <p class="text-sm text-gray-600 mt-2">Solutions sur-mesure pour accès piéton et véhicules.</p>
         </article>
-        <article class="p-4 border rounded-lg hover:shadow-md">
+        <article class="p-4 border rounded-lg hover:shadow-md transition">
           <h4 class="font-medium text-blue-700">Contrôle d’accès & Sécurité</h4>
           <p class="text-sm text-gray-600 mt-2">Systèmes intégrés pour la protection périmétrique.</p>
         </article>
-        <article class="p-4 border rounded-lg hover:shadow-md">
+        <article class="p-4 border rounded-lg hover:shadow-md transition">
           <h4 class="font-medium text-blue-700">Maintenance & Service</h4>
           <p class="text-sm text-gray-600 mt-2">Réseau d'installateurs et service après-vente dédiés.</p>
         </article>
@@ -132,7 +143,7 @@
     </section>
 
     <!-- Zone -->
-    <section id="zone" class="grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 fade-in">
+    <section id="zone" class="grid md:grid-cols-2 gap-10 items-center fade-in">
       <div>
         <h3 class="text-2xl font-semibold mb-3">Zone couverte</h3>
         <p class="text-gray-700 mb-4 leading-relaxed">Intervention sur l'ensemble du Luxembourg. Pour toute demande, contactez directement Stéphane.</p>
@@ -146,8 +157,8 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="bg-white p-8 md:px-16 shadow-sm fade-in">
-      <h3 class="text-2xl font-semibold mb-6 text-center">Contact</h3>
+    <section id="contact" class="bg-white rounded-xl p-10 shadow-sm fade-in">
+      <h3 class="text-2xl font-semibold mb-8 text-center">Contact</h3>
       <div class="grid md:grid-cols-2 gap-10">
         <div>
           <p class="text-gray-700 text-lg font-medium">Stéphane Winckel</p>
@@ -181,12 +192,14 @@
       </div>
     </section>
 
-    <footer class="text-center text-sm text-gray-500 fade-in pt-8 border-t px-8 md:px-16">
+    <!-- Footer -->
+    <footer class="text-center text-sm text-gray-500 fade-in pt-8 border-t">
       © <script>document.write(new Date().getFullYear())</script> Dirickx — Responsable Commercial Luxembourg · Stéphane Winckel · Mentions légales
     </footer>
   </main>
 
   <script>
+    // Apparition progressive des sections
     const elements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -195,5 +208,6 @@
     }, { threshold: 0.1 });
     elements.forEach(el => observer.observe(el));
   </script>
+
 </body>
 </html>
