@@ -70,10 +70,8 @@
   <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased">
-
-  <!-- HEADER -->
   <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between header-anim">
+    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between header-anim">
       <div class="flex items-center gap-4">
         <img src="/logo-dirickx.png" alt="Dirickx" class="h-12 w-auto logo-anim" />
         <div>
@@ -81,48 +79,46 @@
           <p class="text-sm text-gray-600">Responsable Commercial · Dirickx — Luxembourg</p>
         </div>
       </div>
+      <!-- Bouton Gmail -->
       <a href="https://mail.google.com/mail/?view=cm&to=stephane.winckel@luxmeca.lu&su=Demande%20d'information&body=Bonjour%20Stéphane,"
          target="_blank" rel="noopener"
-         class="btn inline-block px-6 py-2 border border-blue-600 text-blue-600 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white">
+         class="btn inline-block px-5 py-2 border border-blue-600 text-blue-600 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white">
          Envoyer un mail
       </a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="relative w-full h-[85vh] md:h-[100vh] flex items-center justify-center overflow-hidden">
-    <!-- Image de fond -->
-    <img src="/hero-project.jpg" alt="Projet Dirickx au Luxembourg" class="absolute inset-0 w-full h-full object-cover" />
+  <main class="max-w-5xl mx-auto px-6 py-12 space-y-16">
+    <!-- Hero -->
+    <section class="grid md:grid-cols-2 gap-10 items-center fade-in">
+      <div>
+        <h2 class="text-4xl font-bold mb-4">Votre interlocuteur Dirickx au Luxembourg</h2>
+        <p class="text-gray-700 mb-5 leading-relaxed">Je représente Dirickx sur tout le territoire luxembourgeois. J'accompagne collectivités, entreprises et particuliers dans leurs projets de clôture, contrôle d'accès et protection périmétrique.</p>
+        <ul class="space-y-2 text-gray-700">
+          <li>🔹 Diagnostics & conseils sur-mesure</li>
+          <li>🔹 Solutions complètes : clôtures, portails, motorisations, systèmes anti-intrusion</li>
+          <li>🔹 Suivi de projet et réseau d'installateurs certifiés</li>
+        </ul>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <!-- Bouton vers formulaire -->
+          <a href="#contact" class="btn px-5 py-3 bg-blue-600 text-white rounded-md">Me contacter</a>
 
-    <!-- Overlay noir -->
-    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-
-    <!-- Dégradé bas -->
-    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-50 to-transparent"></div>
-
-    <!-- Contenu -->
-    <div class="relative z-10 text-center text-white px-6 md:px-20 fade-in">
-      <h2 class="text-4xl md:text-6xl font-bold mb-8 md:mb-10 leading-tight">Votre interlocuteur Dirickx au Luxembourg</h2>
-      <p class="text-lg md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
-        J'accompagne collectivités, entreprises et particuliers dans leurs projets de clôtures, portails et sécurité périmétrique à travers tout le Grand-Duché.
-      </p>
-      <div class="flex flex-wrap justify-center gap-6">
-        <a href="#contact" class="btn px-8 py-4 bg-blue-600 text-white rounded-md text-lg">Me contacter</a>
-        <a href="https://www.dirickx.fr/" target="_blank" rel="noopener"
-           class="btn inline-block px-8 py-4 border border-white text-white rounded-md text-lg hover:bg-white hover:text-blue-600">
-           Découvrir Dirickx
-        </a>
+          <!-- Bouton Découvrir Dirickx harmonisé -->
+          <a href="https://www.dirickx.fr/" target="_blank" rel="noopener"
+             class="btn inline-block px-5 py-3 border border-blue-600 text-blue-600 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white">
+             Découvrir Dirickx
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- MAIN -->
-  <main class="max-w-7xl mx-auto px-8 py-20 space-y-20">
+      <div class="rounded-xl overflow-hidden shadow-lg fade-in">
+        <img src="/hero-project.jpg" alt="Projet Dirickx" class="w-full h-80 object-cover hover:scale-105 transform transition duration-500" />
+      </div>
+    </section>
 
     <!-- Produits -->
-    <section id="produits" class="bg-white rounded-xl p-10 shadow-sm fade-in">
-      <h3 class="text-2xl font-semibold mb-8 text-center">Solutions Dirickx</h3>
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+    <section id="produits" class="bg-white rounded-xl p-8 shadow-sm fade-in">
+      <h3 class="text-2xl font-semibold mb-6 text-center">Solutions Dirickx</h3>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
         <article class="p-4 border rounded-lg hover:shadow-md transition">
           <h4 class="font-medium text-blue-700">Clôtures & Treillis</h4>
           <p class="text-sm text-gray-600 mt-2">Robustes, adaptées aux collectivités et sites industriels.</p>
@@ -148,7 +144,7 @@
         <h3 class="text-2xl font-semibold mb-3">Zone couverte</h3>
         <p class="text-gray-700 mb-4 leading-relaxed">Intervention sur l'ensemble du Luxembourg. Pour toute demande, contactez directement Stéphane.</p>
         <ul class="text-sm text-gray-600">
-          <li>📍 Luxembourg</li>
+          <li>📍 Luxembourg </li>
         </ul>
       </div>
       <div class="rounded-xl overflow-hidden shadow-lg">
@@ -157,8 +153,8 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="bg-white rounded-xl p-10 shadow-sm fade-in">
-      <h3 class="text-2xl font-semibold mb-8 text-center">Contact</h3>
+    <section id="contact" class="bg-white rounded-xl p-8 shadow-sm fade-in">
+      <h3 class="text-2xl font-semibold mb-6 text-center">Contact</h3>
       <div class="grid md:grid-cols-2 gap-10">
         <div>
           <p class="text-gray-700 text-lg font-medium">Stéphane Winckel</p>
@@ -208,6 +204,5 @@
     }, { threshold: 0.1 });
     elements.forEach(el => observer.observe(el));
   </script>
-
 </body>
 </html>
