@@ -60,6 +60,25 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
+
+    /* Bandeau sur l’image du catalogue */
+    .catalog-banner {
+      animation: fadeInBanner 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeInBanner {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pulse-icon {
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.7; }
+    }
   </style>
 
   <!-- Open Graph -->
@@ -114,13 +133,16 @@
         </div>
       </div>
 
-      <!-- Image cliquable vers le catalogue -->
+      <!-- Image cliquable vers le catalogue (mise en avant immédiate) -->
       <a href="https://www.dirickx.fr/catalogue" target="_blank" rel="noopener" 
          class="relative block rounded-xl overflow-hidden shadow-lg fade-in w-full group">
         <img src="/hero-project.jpg" alt="Accédez au catalogue Dirickx" 
              class="w-full h-80 object-cover transform transition duration-500 group-hover:scale-105" loading="lazy" />
-        <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white text-center py-2 text-sm transition group-hover:bg-opacity-70">
-          📘 Cliquez sur la photo pour ouvrir le catalogue Dirickx
+        
+        <!-- Bandeau bien visible dès le chargement -->
+        <div class="absolute bottom-0 left-0 w-full bg-blue-700 bg-opacity-90 text-white text-center py-3 text-sm font-medium catalog-banner transition group-hover:bg-opacity-100">
+          <span class="pulse-icon inline-block mr-2">📘</span>
+          Cliquez sur la photo pour accéder au catalogue Dirickx
         </div>
       </a>
     </section>
