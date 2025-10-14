@@ -68,6 +68,8 @@
   <meta property="og:image" content="/hero-project.jpg" />
   <meta property="og:url" content="https://www.dirickx.fr/" />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased w-full">
 
@@ -111,9 +113,16 @@
           </a>
         </div>
       </div>
-      <div class="rounded-xl overflow-hidden shadow-lg fade-in w-full">
-        <img src="/hero-project.jpg" alt="Projet Dirickx" class="w-full h-80 object-cover hover:scale-105 transform transition duration-500" />
-      </div>
+
+      <!-- Image cliquable vers le catalogue -->
+      <a href="https://www.dirickx.fr/catalogue" target="_blank" rel="noopener" 
+         class="relative block rounded-xl overflow-hidden shadow-lg fade-in w-full group">
+        <img src="/hero-project.jpg" alt="Accédez au catalogue Dirickx" 
+             class="w-full h-80 object-cover transform transition duration-500 group-hover:scale-105" loading="lazy" />
+        <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white text-center py-2 text-sm transition group-hover:bg-opacity-70">
+          📘 Cliquez sur la photo pour ouvrir le catalogue Dirickx
+        </div>
+      </a>
     </section>
 
     <!-- Produits -->
@@ -149,7 +158,7 @@
         </ul>
       </div>
       <div class="rounded-xl overflow-hidden shadow-lg w-full">
-        <iframe title="Zone Luxembourg" class="w-full h-64" src="https://www.google.com/maps?q=Luxembourg&output=embed" frameborder="0"></iframe>
+        <iframe title="Zone Luxembourg" class="w-full h-64" src="https://www.google.com/maps?q=Luxembourg&output=embed" frameborder="0" loading="lazy"></iframe>
       </div>
     </section>
 
@@ -191,7 +200,7 @@
 
     <!-- Footer -->
     <footer class="text-center text-sm text-gray-500 fade-in pt-8 border-t w-full">
-      © <script>document.write(new Date().getFullYear())</script> Dirickx — Chargé d'affaire Luxembourg · Stéphane Winckel · Mentions légales
+      © <span id="year"></span> Dirickx — Chargé d'affaire Luxembourg · Stéphane Winckel · Mentions légales
     </footer>
 
   </main>
@@ -205,6 +214,9 @@
       });
     }, { threshold: 0.1 });
     elements.forEach(el => observer.observe(el));
+
+    // Année automatique
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
